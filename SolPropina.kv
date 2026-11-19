@@ -1,0 +1,37 @@
+# EJERCICIO 4 - Interfaz en lenguaje KV (propina.kv)
+# Completa los espacios ____ (números 9 al 15).
+
+<PropinaLayout>:
+    orientation: "vertical"
+    padding: 20
+    spacing: 10
+
+    Label:
+        text: "Calculadora de propina"
+        font_size: "24sp"
+
+    TextInput:
+        id: monto
+        hint_text: "Monto de la cuenta"
+        multiline: False
+        input_filter: "float"
+        font_size: "22sp"
+
+    Label:
+        # Se actualiza solo cada vez que cambia el Slider
+        text: "Propina: " + str(int(propina.value)) + "%"
+
+    Slider:
+        id: propina
+        min: 0
+        max: 30
+        value: 10
+        step: 1
+
+    Button:
+        text: "Calcular"
+        on_press: root.calcular()
+
+    Label:
+        text: root.resultado
+        font_size: "22sp"

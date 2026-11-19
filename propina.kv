@@ -1,0 +1,37 @@
+# EJERCICIO 4 - Interfaz en lenguaje KV (propina.kv)
+# Completa los espacios ____ (números 9 al 15).
+
+<PropinaLayout>:
+    orientation: "____"                   # 9. Los widgets se apilan en columna
+    padding: 20
+    spacing: 10
+
+    Label:
+        text: "Calculadora de propina"
+        font_size: "24sp"
+
+    TextInput:
+        id: ____                             # 10. Nombre con el que Python lo encuentra en self.ids
+        hint_text: "Monto de la cuenta"
+        multiline: False
+        input_filter: "float"
+        font_size: "22sp"
+
+    Label:
+        # Se actualiza solo cada vez que cambia el Slider
+        text: "Propina: " + str(int(propina.____)) + "%"   # 11. Valor actual del Slider (id: propina)
+
+    Slider:
+        id: propina
+        min: 0
+        max: ____                               # 12. Porcentaje máximo de propina
+        value: 10
+        step: 1
+
+    Button:
+        text: "Calcular"
+        on_____: root.____()         # 13 y 14. Evento "al presionar" y método de PropinaLayout (python)
+
+    Label:
+        text: root.____                  # 15. Propiedad de PropinaLayout que muestra el resultado
+        font_size: "22sp"
