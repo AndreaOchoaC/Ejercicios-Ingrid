@@ -2,14 +2,16 @@
 EJERCICIO 3 - KIVY: "Conversor Celsius a Fahrenheit"
 El usuario escribe grados Celsius, presiona "Convertir" y se muestra el resultado.
 
-INSTRUCCIONES: reemplaza cada ____ por el código correcto (hay 10 espacios).
+INSTRUCCIONES: reemplaza cada ____ por el código correcto 
 """
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
+from kivy.core.window import Window
 
+# ¿Cómo cambiar el color de fondo de la ventana? (usa Window.clearcolor) y un hexadecimal (usa get_color_from_hex)
 
 class Conversor(____):                                     # 1. Layout del que hereda la clase
     def __init__(self, **kwargs):
@@ -18,6 +20,12 @@ class Conversor(____):                                     # 1. Layout del que h
         self.padding = 20
         self.spacing = 10
 
+        
+        # ¿Cómo cambiar el estilo del texto?
+        # Pista: font_color=(1, 1, 1, 1) y hint_text_color=(0.6, 0.6, 0.7, 1)
+        # Pista: background_color
+        # Pista: font_size
+
         self.add_widget(Label(text="Celsius a Fahrenheit", font_size=24))
 
         self.entrada = TextInput(
@@ -25,6 +33,7 @@ class Conversor(____):                                     # 1. Layout del que h
             multiline=____,                                    # 3. Una sola línea (True / False)
             input_filter="float",
             font_size=22,
+            # ¿qué propiedades de estilo se pueden agregar aquí?
         )
         self.____(self.entrada)                           # 4. Agrega el campo al layout
 

@@ -1,6 +1,12 @@
 # EJERCICIO 4 - Interfaz en lenguaje KV (propina.kv)
 # Completa los espacios ____ (números 9 al 15).
 
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+
+<Label>:
+    color: get_color_from_hex("#cdd6f4")
+    font_size: "20sp"
+
 <PropinaLayout>:
     orientation: "vertical"
     padding: 20
@@ -16,6 +22,11 @@
         multiline: False
         input_filter: "float"
         font_size: "22sp"
+        background_color: get_color_from_hex("#161c88")
+        foreground_color: 1, 1, 1, 1
+        hint_text_color: 0.6, 0.6, 0.7, 1
+        cursor_color: 1, 1, 1, 1
+        padding: 12, 12
 
     Label:
         # Se actualiza solo cada vez que cambia el Slider
@@ -31,6 +42,19 @@
     Button:
         text: "Calcular"
         on_press: root.calcular()
+        background_normal: ""
+        background_color: 0, 0, 0, 0
+        color: 0, 0, 0, 1
+        bold: True
+        size_hint_y: None
+        height: "50dp"
+        canvas.before:
+            Color:
+                rgba: get_color_from_hex("#89b4fa") if self.state == "normal" else get_color_from_hex("#74c7ec")
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [12]
 
     Label:
         text: root.resultado
